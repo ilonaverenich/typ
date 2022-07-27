@@ -8,7 +8,6 @@
 p{
     margin: 0;
 }
-
 .wrapper{
     background: rgb(255, 255, 255);
     width: 100vw;
@@ -65,7 +64,85 @@ p{
 .fogot-password{
     font-weight: 500;
     font-size: 10px;
+    cursor: pointer;
 }
 h1 {
     font-size: 30px;
 }
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+   
+}
+
+.contentBlock{
+      flex:3;
+      padding: 10px;
+}
+.navbar{
+    height: 100vh;
+    padding: 30px 0px;
+    flex: 1;
+    background:  #336666;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+    
+}
+.navbar__header{
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.icon{
+    cursor: pointer;
+}
+.navbar__block {
+    display: flex;
+    flex-direction: column;
+   
+} 
+
+.navMenu{
+    padding: 30px 0 0 20px;
+}
+.exit {
+     display: flex; 
+    justify-content: center;
+}
+span {
+    cursor: pointer;
+    padding-left: 7px;
+}
+
+.menu-antd {
+    background: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    border: none;
+}
+.add-btn{
+    background: #336666;
+    color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    
+}
+.subBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 20px;
+}
+
+.add-new-person-block {
+    display: flex; 
+}
+
+

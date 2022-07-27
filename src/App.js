@@ -1,11 +1,20 @@
 import './App.less';
+import {BrowserRouter,Route, Routes} from 'react-router-dom'
 import Login from './Components/Login';
+import Main from './Components/Main';
 
 
 function App() {
   return (
     <div className="wrapper">
-      <Login/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/main' element={<Main/>}/>
+      </Routes>
+      
+      </BrowserRouter>
+
     </div>
   );
 }
