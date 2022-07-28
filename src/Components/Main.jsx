@@ -2,7 +2,8 @@
 import { Button, Menu , Input, Table} from 'antd';
 import React,{useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {menulink} from '../redux/reducers/mainReducer'
+import {menulink,setIsModalVisible} from '../redux/reducers/mainReducer'
+import AddNewStudentsModal from './AddNewStudentsModal';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -24,7 +25,23 @@ const items = [
   getItem('Задачи', 'tasks', null),
   getItem('Чек листы', 'checklists', null),
 ];
-const dataSource = [
+
+/* export const dataSource =[
+  {
+    key: '1',
+    name: "Pavel Guzu",
+    login: "example@example.com",
+    password: 123123,
+    instagram: "@pgutzu",
+    telegram: "@pgutzu",
+    nameModule:'JavaScript',
+    getStart: '12.05.2022',
+    deistvie: 'Пригласить',
+    another: 'Изменить'
+  },
+]
+ */
+/* export const dataSource = [
   {
     key: '1',
     name: "Pavel Guzu",
@@ -49,8 +66,20 @@ const dataSource = [
     deistvie:'Пригласить',
     another: 'Изменить'
   },
+  {
+    key: '3',
+    name: student.name,
+    login: student.login,
+    password: 1234268,
+    instagram: student.instagram,
+    telegram: "@iloneeechka",
+    nameModule:'React',
+    getStart: '05.05.2022',
+    deistvie:'Пригласить',
+    another: 'Изменить'
+  },
 
-];
+]; */
 
 const columns = [
   {
@@ -100,7 +129,15 @@ function Main() {
 
   const dispatch = useDispatch();
   const link = useSelector((store)=>store.data.link)
-   console.log(link)
+  const isModalVisible = useSelector((store)=>store.data.isModalVisible)
+  const student = useSelector((store)=>store.data.student)
+  const students = useSelector((store)=>store.data.students)
+   console.log(isModalVisible)
+
+   function addNewStudents(){
+    dispatch(setIsModalVisible(true))  
+    console.log(isModalVisible)
+     }
 
 /*    switch (link){
     case 'rStudents': console.log('tut rS');break;
@@ -120,8 +157,7 @@ function Main() {
             <img src="https://i.postimg.cc/Ghr4Z1dB/icons8-24.png" width={40} alt="icon" />
           </div>
         </div>
-        <div className="navMenu">
-       
+        <div className="navMenu">    
            <Menu
             className='menu-antd'
               style={{
@@ -138,7 +174,7 @@ function Main() {
         <img src="https://i.postimg.cc/63xNPtnT/icons8-32.png" alt="exit" />
         <span>Выйти</span>
        </div>
-        
+            <AddNewStudentsModal/>
       </div>
       <div className="contentBlock">
       <Menu mode="horizontal"  onClick={(e)=>dispatch(menulink(e.key))}  defaultSelectedKeys={['mail']}> 
@@ -159,11 +195,15 @@ function Main() {
         <div className='subBlock'>
           <div><h1>Таблица пользователей</h1></div>
           <div className='add-new-person-block'>
-                <Button className='add-btn'>Добавить студента</Button>
-            <div><Input/></div>
+                <Button className='add-btn' onClick={()=>addNewStudents()}>
+                    Добавить студента
+                </Button>
+              <div>
+                <Input/>
+              </div>
           </div>
         </div>
-        <Table dataSource={dataSource} columns={columns} />
+        <Table dataSource={students} columns={columns} />
       </div>
     </div> 
   )

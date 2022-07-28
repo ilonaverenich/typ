@@ -8,12 +8,10 @@ import Test from './Components/Test';
 function App() {
   return (
     <div className="wrapper">
-     {/*  <Test/> */}
        <BrowserRouter>
-      <Routes>
-        
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/main' element={<Main/>}/>
+      <Routes>  
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/main' element={<Main/>}/>
       </Routes>
       
       </BrowserRouter> 
