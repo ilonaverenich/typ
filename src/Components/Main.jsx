@@ -1,6 +1,8 @@
 
 import { Button, Menu , Input, Table} from 'antd';
 import React,{useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {menulink} from '../redux/reducers/mainReducer'
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -92,10 +94,19 @@ const columns = [
     key: 'another',
   }
 ];
+
+
 function Main() {
 
-  const [menu,setMenu] = useState('')
-  console.log(menu);
+  const dispatch = useDispatch();
+  const link = useSelector((store)=>store.data.link)
+   console.log(link)
+
+/*    switch (link){
+    case 'rStudents': console.log('tut rS');break;
+    case 'tasks': console.log('tut tasks');break;
+  
+  } */
 
   return (
   <div className="container">
@@ -119,7 +130,7 @@ function Main() {
               
               mode="inline"
               items={items}
-              onClick={(e)=>setMenu(e.key)}
+              onClick={(e)=>dispatch(menulink(e.key))}
               />
         </div>
        </div>
@@ -130,7 +141,7 @@ function Main() {
         
       </div>
       <div className="contentBlock">
-      <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
+      <Menu mode="horizontal"  onClick={(e)=>dispatch(menulink(e.key))}  defaultSelectedKeys={['mail']}> 
 
           <Menu.Item key="students">
             Студенты
@@ -152,7 +163,6 @@ function Main() {
             <div><Input/></div>
           </div>
         </div>
-
         <Table dataSource={dataSource} columns={columns} />
       </div>
     </div> 
