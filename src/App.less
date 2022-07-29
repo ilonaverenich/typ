@@ -1,10 +1,12 @@
 @import '~antd/dist/antd.less';
 @import '~antd/es/style/themes/default.less';
+@import './colors.less';
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 p{
     margin: 0;
@@ -13,9 +15,9 @@ p{
     background: #ffffff;
     width: 100vw;
     height: 100vh;
-    
-
 }
+
+
 .content{
     width: 100%;
     height: 100%;
@@ -130,7 +132,7 @@ span {
     border: none;
 }
 .add-btn{
-    background: #336666;
+    background: linear-gradient(to top, #006666 2%, #009999 100%);
     color: white;
     border-radius: 5px;
     margin-right: 15px;
@@ -145,6 +147,79 @@ span {
 .add-new-person-block {
     display: flex; 
 }
+.name-module {
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 2rem;
+}
+.block-module-title {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.block-color-container {
+    margin-top: 10px;
+    display: flex;
+}
+.block-color{
+    width: 20px;
+    margin-left: 5px;
+    height: 20px;
+    cursor: pointer;
+    
+}
+.module_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 100px;
+  align-items: center;
+  justify-items: center;
+
+    margin:20px  auto;
+    gap: 1em;
+ align-self: center;
+
+}
+.cards-module {
+    width: 200px;
+    border: 1px solid #336666;
+    height: 100px;
+}
+.cards-module-block {
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.title-module{
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.block-icons  {
+    display: flex;
+    justify-content: end;
+}
+.block-icons>div{
+    margin-right: 5px;
+}
+.block-icons img{
+    cursor: pointer;
+}
+
+.circle {
+    height: 30px;
+    width: 60px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.border {
+    border: 3px solid black;
+}
+.edit-input {
+    width: 100px;
+}
+
 
 
 

@@ -2,7 +2,7 @@ import './App.less';
 import {BrowserRouter,Route, Routes} from 'react-router-dom'
 import Login from './Components/Login';
 import Main from './Components/Main';
-import Test from './Components/Test';
+import Module from './Components/Modules/Module';
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <Routes>  
             <Route path='/login' element={<Login/>}/>
             <Route path='/main' element={<Main/>}/>
+            <Route path='/module' element={<Module/>}/>
       </Routes>
-      
       </BrowserRouter> 
 
     </div>
