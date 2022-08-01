@@ -2,7 +2,7 @@ import { Button, Menu , Input, Table} from 'antd';
 import {useDispatch, useSelector} from 'react-redux';
 import {menulink} from '../redux/reducers/mainReducer'
 import AddNewStudentsModal from './AddNewStudentsModal';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function getItem(label, key, icon, children, type) {
     return {
@@ -33,12 +33,11 @@ function NavBar() {
     const link = useSelector((store)=>store.data.link)
     const navigate = useNavigate();
   
-
-
-  /*   switch (link){
-      case 'allstudents': navigate('/main');break;
-      case 'module': navigate('/module'); break;
+    /* switch (link){
+      case 'allstudents': <NavLink to='/main'>;break;
+      case 'module': <NavLink to='/module'/>; break;
     } */
+
   return (
     <div className="navbar">
        <div className="navbar__block">
@@ -58,9 +57,12 @@ function NavBar() {
               }}
               
               mode="inline"
-              items={items}
+            /*   items={items} */
               onClick={(e)=>dispatch(menulink(e.key))}
-              />
+              >
+              <Link to='/main'><Menu.Item id='allstudents'>Все пользователи</Menu.Item></Link>
+              <Link to='/module'><Menu.Item id='module'>Модули</Menu.Item></Link> 
+              </Menu>
         </div>
        </div>
        <div className="exit">

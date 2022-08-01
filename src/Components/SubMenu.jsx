@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import {useDispatch} from 'react-redux';
 import { menulink } from '../redux/reducers/mainReducer';
+import {NavLink} from 'react-router-dom'
 
 
 
@@ -11,9 +12,11 @@ function SubMenu() {
   return (
       <Menu mode="horizontal"  onClick={(e)=>dispatch(menulink(e.key))}  defaultSelectedKeys={['mail']}> 
 
-          <Menu.Item key="students">
+
+         <Menu.Item key="students">
             Студенты
           </Menu.Item>
+        
           
           <Menu.Item key="dstudents">
               Динамика студентов
