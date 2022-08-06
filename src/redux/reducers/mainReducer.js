@@ -26,7 +26,8 @@ const initialValue ={
     }
     ,
     isEditModule:false,
-    modules:[]
+    modules:[],
+   
 
 }
 export const menulink = createAction('MENU_LINK')
@@ -39,6 +40,9 @@ export const setLoginStudent = createAction('SET_LOGIN_STUDENTS')
 export const setModuleStudent = createAction('SET_MODULE_STUDENTS')
 export const getListStudents = createAction('GET_LIST_STUDENTS')
 export const setIdModule = createAction('SET_ID_MODULE')
+
+export const getSelectArray = createAction('GET_SELECT_ARRAY')
+export const getSelect = createAction('GET_SELECT')
 
  export const setNewTitleModule = createAction('SET_NEW_TITLE_MODULE') 
 

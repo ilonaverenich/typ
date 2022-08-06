@@ -114,7 +114,7 @@ h1 {
 } 
 
 .navMenu{
-    padding: 30px 0 0 20px;
+    padding: 30px 0 0 0px;
 }
 .exit {
      display: flex; 
@@ -125,22 +125,19 @@ span {
     padding-left: 7px;
 }
 
-.menu-antd {
-    background: none;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    border: none;
-}
-.menu-antd:visited{
-    color: #ffffff;
-}
+
 .add-btn{
     background: linear-gradient(to top, #006666 2%, #009999 100%);
     color: white;
     border-radius: 5px;
-    margin-right: 15px;
-    
+    margin-right: 15px;    
 }
+
+.add-btn:hover{
+    transition: 0.5s linear;
+    background: #008;
+}
+
 .subBlock {
     display: flex;
     justify-content: space-between;
@@ -222,7 +219,29 @@ span {
 .edit-input {
     width: 100px;
 }
+.menu a{
+    color: white;
+    font-size: 20px;
+}
 
+.menu a:hover{
+   text-shadow: 1px 1px 15px  white;
+}
+
+
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+.menu span{
+  
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+}
+.active{
+    background: rgb(253, 195, 103);
+}
 
 
 

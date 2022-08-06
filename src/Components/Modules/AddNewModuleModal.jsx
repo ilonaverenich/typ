@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Modal, Input, Checkbox, message } from 'antd'
+import {Modal, Input, message } from 'antd'
 import {setIsModalVisibleModule,getDataModulesName,getDataModulesColor,getDataModules,setIdModule} from '../../redux/reducers/mainReducer';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -8,18 +8,31 @@ function AddNewModuleModal() {
     const isModalVisibleModule = useSelector((store)=>store.data.isModalVisibleModule)
     const module = useSelector((store)=>store.data.module)
     const modules = useSelector((store)=>store.data.modules)
+console.log(modules)
     const [inputValueName,setInputValueName] = useState('')
 /*    console.log(modules) */
    
  
       const handleOk = () => {
-     if(modules.map(item=>Object.values(item).includes(module.nameModules))[0]){message.warning('Такое имя модуля уже существует! В дальнейшем мы удалим повтор')}
+        if (inputValueName.length ==0){
+          message.error('Вы не ввели имя модуля!')
+        }
+        else{
+          if(modules.map(item=>Object.values(item).includes(module.nameModules))[0]){message.warning('Такое имя модуля уже существует! В дальнейшем мы удалим повтор')}
       
-       dispatch (setIsModalVisibleModule(false))
-       dispatch (getDataModules(module))
-       dispatch(getDataModulesColor(module.colorModules))
-       dispatch(setIdModule(Date.parse(new Date)))
-       setInputValueName('')
+          dispatch (setIsModalVisibleModule(false))
+          dispatch (getDataModules(module))
+          dispatch(getDataModulesColor(module.colorModules))
+          dispatch(setIdModule(Date.parse(new Date)))
+          setInputValueName('')
+         /*  dispatch(getSelect(inputValueName))
+          dispatch(getSelectArray({
+            value: inputValueName,
+            label: inputValueName
+          })) */
+
+        }
+    
       };
     
       const handleCancel = () => {
@@ -27,7 +40,9 @@ function AddNewModuleModal() {
       };
 
       function handleInputChange(e){
+      
         dispatch(getDataModulesName(e.target.value))
+        
         setInputValueName(e.target.value)
       }
   return (

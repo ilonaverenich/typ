@@ -44,7 +44,7 @@ function Login() {
         <div className='form'>
                  <div>
                     <p>Логин:</p>
-                    <Input className='input' onChange={(e)=>setInputName(e.target.value)}/>
+                    <Input type='email' className='input' onChange={(e)=>setInputName(e.target.value)}/>
                     </div>
                   <div>
                     <div className='password'>
@@ -52,7 +52,7 @@ function Login() {
                     <p className='fogot-password' onClick={()=>message.warning('Плохо:) Ничем помочь Вам не можем!)')}>Забыли пароль?</p>
                   </div>
 
-                <Input className='input' onChange={(e)=>setInputPassword(e.target.value)}/>
+                <Input type='password' className='input' onChange={(e)=>setInputPassword(e.target.value)}/>
                 </div>
                 
                 <Button type='primary' onClick={()=>handleSubmit()} className='submit'>Отправить</Button>

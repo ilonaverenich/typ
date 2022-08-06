@@ -57,11 +57,11 @@ function Main() {
   const isModalVisible = useSelector((store)=>store.data.isModalVisible)
   const student = useSelector((store)=>store.data.student)
   const students = useSelector((store)=>store.data.students)
-   console.log(isModalVisible)
+
 
    function addNewStudents(){
     dispatch(setIsModalVisible(true))  
-    console.log(isModalVisible)
+
      }
 
 /*    switch (link){

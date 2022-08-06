@@ -1,8 +1,8 @@
-import { Button, Menu , Input, Table} from 'antd';
-import {useDispatch, useSelector} from 'react-redux';
+import {  Menu } from 'antd';
+import {useDispatch,useSelector} from 'react-redux';
 import {menulink} from '../redux/reducers/mainReducer'
 import AddNewStudentsModal from './AddNewStudentsModal';
-import {Link, useNavigate} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 function getItem(label, key, icon, children, type) {
     return {
@@ -30,14 +30,9 @@ function getItem(label, key, icon, children, type) {
 function NavBar() {
   
     const dispatch = useDispatch();
-    const link = useSelector((store)=>store.data.link)
-    const navigate = useNavigate();
-  
-    /* switch (link){
-      case 'allstudents': <NavLink to='/main'>;break;
-      case 'module': <NavLink to='/module'/>; break;
-    } */
-
+  const link = useSelector((store)=>store.data.link)
+  /*     const navigate = useNavigate(); */
+  console.log(link)
   return (
     <div className="navbar">
        <div className="navbar__block">
@@ -49,21 +44,21 @@ function NavBar() {
             <img src="https://i.postimg.cc/Ghr4Z1dB/icons8-24.png" width={40} alt="icon" />
           </div>
         </div>
-        <div className="navMenu">    
-           <Menu
-            className='menu-antd'
-              style={{
-                width: 256,
-              }}
-              
-              mode="inline"
-            /*   items={items} */
-              onClick={(e)=>dispatch(menulink(e.key))}
-              >
-              <Link to='/main'><Menu.Item id='allstudents'>Все пользователи</Menu.Item></Link>
-              <Link to='/module'><Menu.Item id='module'>Модули</Menu.Item></Link> 
-              </Menu>
-        </div>
+       
+          
+             
+           
+               
+             
+             <div className='navMenu'>
+             <div className='menu'  onClick={(e)=>dispatch(menulink(e.target.id))}>
+             <NavLink to='/main' id='allstudents'> 
+             <span className={link == 'allstudents'?'active':''}>Все пользователи</span> </NavLink> 
+             <NavLink to='/module' id='module' > <span>Модули</span>  </NavLink> 
+
+             </div>
+             </div>
+
        </div>
        <div className="exit">
         <img src="https://i.postimg.cc/63xNPtnT/icons8-32.png" alt="exit" />

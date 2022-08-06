@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { setIsModalVisible, setNameStudent, setTelegramStudent, setInstagramStudent,setLoginStudent,setModuleStudent, getListStudents} from '../redux/reducers/mainReducer';
 
 
-const options = [
+/* const options = [
   {
     value: 'HTML/CSS',
     label: 'HTML/CSS',
@@ -16,11 +16,13 @@ const options = [
     value: 'REACT',
     label: 'REACT',
   }
-]
+] */
 const AddNewStudentsModal = () => {
     const dispatch = useDispatch();
     const isModalVisible = useSelector((store)=>store.data.isModalVisible)
-    const student = useSelector((store)=>store.data.student)
+    const student = useSelector((store)=>store.data.student);
+    const modules = useSelector((store)=>store.data.module.nameModules)
+
 
   
   const handleOk = () => {
@@ -44,7 +46,7 @@ const AddNewStudentsModal = () => {
               <p>Mail</p>
               <Input onChange={(e)=>dispatch(setLoginStudent(e.target.value))}/>
               <p>Модуль:</p> 
-              <Cascader onChange={(e)=>dispatch(setModuleStudent(e[0]))} options={options} placeholder="Please select" />
+              <Cascader onChange={(e)=>dispatch(setModuleStudent(e[0]))}  /* options={..modules}   */placeholder="Please select" />
             </div>
       </Modal>
   );
